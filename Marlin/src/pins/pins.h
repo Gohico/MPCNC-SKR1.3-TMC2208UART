@@ -616,7 +616,7 @@
   #define BOARD_ESP32                   -1007
   #define BOARD_STEVAL                  -1008
   #define BOARD_BIGTREE_SKR_V1_1        -1009
-  #define BOARD_BTT_SKR_V1_3            -1010
+  #define BOARD_BIGTREE_SKR_V1_3        -1010
   #define BOARD_BIGTREE_SKR_V1_4        -1011
   #define BOARD_BIGTREE_SKR_V1_4_TURBO  -1012
   #define BOARD_BIGTREE_BTT002_V1_0     -1013
