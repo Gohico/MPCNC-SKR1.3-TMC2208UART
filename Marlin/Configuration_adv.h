@@ -499,40 +499,23 @@
 
 #define X_DUAL_STEPPER_DRIVERS
 #if ENABLED(X_DUAL_STEPPER_DRIVERS)
-<<<<<<< HEAD
+
 #define INVERT_X2_VS_X_DIR true // Set 'true' if X motors should rotate in opposite directions
-//#define X_DUAL_ENDSTOPS
+#define X_DUAL_ENDSTOPS
 #if ENABLED(X_DUAL_ENDSTOPS)
 #define X2_USE_ENDSTOP _XMAX_
 #define X2_ENDSTOP_ADJUSTMENT 0
 #endif
-=======
-  #define INVERT_X2_VS_X_DIR true   // Set 'true' if X motors should rotate in opposite directions
-  #define X_DUAL_ENDSTOPS
-  #if ENABLED(X_DUAL_ENDSTOPS)
-    #define X2_USE_ENDSTOP _XMAX_
-    #define X2_ENDSTOP_ADJUSTMENT  0
-  #endif
->>>>>>> d1411ea443f33843cf7d640728c00c58b4e39795
 #endif
 
 #define Y_DUAL_STEPPER_DRIVERS
 #if ENABLED(Y_DUAL_STEPPER_DRIVERS)
-<<<<<<< HEAD
 #define INVERT_Y2_VS_Y_DIR true // Set 'true' if Y motors should rotate in opposite directions
-//#define Y_DUAL_ENDSTOPS
+#define Y_DUAL_ENDSTOPS
 #if ENABLED(Y_DUAL_ENDSTOPS)
 #define Y2_USE_ENDSTOP _YMAX_
 #define Y2_ENDSTOP_ADJUSTMENT 0
 #endif
-=======
-  #define INVERT_Y2_VS_Y_DIR true   // Set 'true' if Y motors should rotate in opposite directions
-  #define Y_DUAL_ENDSTOPS
-  #if ENABLED(Y_DUAL_ENDSTOPS)
-    #define Y2_USE_ENDSTOP _YMAX_
-    #define Y2_ENDSTOP_ADJUSTMENT  0
-  #endif
->>>>>>> d1411ea443f33843cf7d640728c00c58b4e39795
 #endif
 
 //
@@ -591,10 +574,10 @@
 #define X2_MIN_POS 80          // Set a minimum to ensure the  second X-carriage can't hit the parked first X-carriage
 #define X2_MAX_POS 353         // Set this to the distance between toolheads when both heads are homed
 #define X2_HOME_DIR 1          // Set to 1. The second X-carriage always homes to the maximum endstop position
-#define X2_HOME_POS X2_MAX_POS // Default X2 home position. Set to X2_MAX_POS.
-                               // However: In this mode the HOTEND_OFFSET_X value for the second extruder provides a software
-                               // override for X2_HOME_POS. This also allow recalibration of the distance between the two endstops
-                               // without modifying the firmware (through the "M218 T1 X???" command).
+#define X2_HOME_POS X2_MAX_POS // Default X2 home position. Set to X2_MAX_POS.                                                     \
+                               // However: In this mode the HOTEND_OFFSET_X value for the second extruder provides a software      \
+                               // override for X2_HOME_POS. This also allow recalibration of the distance between the two endstops \
+                               // without modifying the firmware (through the "M218 T1 X???" command).                             \
                                // Remember: you should set the second extruder x-offset to 0 in your slicer.
 
 // This is the default power-up mode which can be later using M605.
@@ -795,19 +778,11 @@
 // Default stepper release if idle. Set to 0 to deactivate.
 // Steppers will shut down DEFAULT_STEPPER_DEACTIVE_TIME seconds after the last move when DISABLE_INACTIVE_? is true.
 // Time can be set by M18 and M84.
-<<<<<<< HEAD
-#define DEFAULT_STEPPER_DEACTIVE_TIME 600
+#define DEFAULT_STEPPER_DEACTIVE_TIME 1600
 #define DISABLE_INACTIVE_X false
 #define DISABLE_INACTIVE_Y false
 #define DISABLE_INACTIVE_Z false // Set to false if the nozzle will fall down on your printed part when print has finished.
 #define DISABLE_INACTIVE_E false
-=======
-#define DEFAULT_STEPPER_DEACTIVE_TIME 1200
-#define DISABLE_INACTIVE_X true
-#define DISABLE_INACTIVE_Y true
-#define DISABLE_INACTIVE_Z true  // Set to false if the nozzle will fall down on your printed part when print has finished.
-#define DISABLE_INACTIVE_E true
->>>>>>> d1411ea443f33843cf7d640728c00c58b4e39795
 
 #define DEFAULT_MINIMUMFEEDRATE 0.0 // minimum feedrate
 #define DEFAULT_MINTRAVELFEEDRATE 0.0
@@ -920,23 +895,13 @@
 // probing on a screwhead or hollow washer, probe near the edges.
 //#define CALIBRATION_MEASURE_AT_TOP_EDGES
 
-<<<<<<< HEAD
 // Define the pin to read during calibration
 #ifndef CALIBRATION_PIN
-//#define CALIBRATION_PIN -1            // Define here to override the default pin
-#define CALIBRATION_PIN_INVERTING false // Set to true to invert the custom pin
+#define CALIBRATION_PIN -1              // Override in pins.h or set to -1 to use your Z endstop
+#define CALIBRATION_PIN_INVERTING false // Set to true to invert the pin
 //#define CALIBRATION_PIN_PULLDOWN
 #define CALIBRATION_PIN_PULLUP
 #endif
-=======
-  // Define the pin to read during calibration
-  #ifndef CALIBRATION_PIN
-    #define CALIBRATION_PIN -1 // Override in pins.h or set to -1 to use your Z endstop
-    #define CALIBRATION_PIN_INVERTING false // Set to true to invert the pin
-    //#define CALIBRATION_PIN_PULLDOWN
-    #define CALIBRATION_PIN_PULLUP
-  #endif
->>>>>>> d1411ea443f33843cf7d640728c00c58b4e39795
 #endif
 
 /**
@@ -959,14 +924,10 @@
 //#define MICROSTEP32 HIGH,LOW,HIGH
 
 // Microstep setting (Only functional when stepper driver microstep pins are connected to MCU.
-<<<<<<< HEAD
-#define MICROSTEP_MODES    \
-  {                        \
-    16, 16, 16, 16, 16, 16 \
-  } // [1,2,4,8,16]
-=======
-#define MICROSTEP_MODES { 16, 16, 16, 16, 16, 16 } // [1,2,4,8,16]
->>>>>>> d1411ea443f33843cf7d640728c00c58b4e39795
+#define MICROSTEP_MODES
+{
+  16, 16, 16, 16, 16, 16
+} // [1,2,4,8,16]
 
 /**
  *  @section  stepper motor current
@@ -1192,7 +1153,6 @@
    *  - SDSORT_CACHE_NAMES will retain the sorted file listing in RAM. (Expensive!)
    *  - SDSORT_DYNAMIC_RAM only uses RAM when the SD menu is visible. (Use with caution!)
    */
-<<<<<<< HEAD
 //#define SDCARD_SORT_ALPHA
 
 // SD Card Sorting options
@@ -1212,39 +1172,12 @@
 //#define LONG_FILENAME_HOST_SUPPORT
 
 // Enable this option to scroll long filenames in the SD card menu
-//#define SCROLL_LONG_FILENAMES
+#define SCROLL_LONG_FILENAMES
 
 // Leave the heaters on after Stop Print (not recommended!)
 //#define SD_ABORT_NO_COOLDOWN
 
 /**
-=======
-  //#define SDCARD_SORT_ALPHA
-
-  // SD Card Sorting options
-  #if ENABLED(SDCARD_SORT_ALPHA)
-    #define SDSORT_LIMIT       40     // Maximum number of sorted items (10-256). Costs 27 bytes each.
-    #define FOLDER_SORTING     -1     // -1=above  0=none  1=below
-    #define SDSORT_GCODE       false  // Allow turning sorting on/off with LCD and M34 g-code.
-    #define SDSORT_USES_RAM    false  // Pre-allocate a static array for faster pre-sorting.
-    #define SDSORT_USES_STACK  false  // Prefer the stack for pre-sorting to give back some SRAM. (Negated by next 2 options.)
-    #define SDSORT_CACHE_NAMES false  // Keep sorted items in RAM longer for speedy performance. Most expensive option.
-    #define SDSORT_DYNAMIC_RAM false  // Use dynamic allocation (within SD menus). Least expensive option. Set SDSORT_LIMIT before use!
-    #define SDSORT_CACHE_VFATS 2      // Maximum number of 13-byte VFAT entries to use for sorting.
-                                      // Note: Only affects SCROLL_LONG_FILENAMES with SDSORT_CACHE_NAMES but not SDSORT_DYNAMIC_RAM.
-  #endif
-
-  // This allows hosts to request long names for files and folders with M33
-  //#define LONG_FILENAME_HOST_SUPPORT
-
-  // Enable this option to scroll long filenames in the SD card menu
-  #define SCROLL_LONG_FILENAMES
-
-  // Leave the heaters on after Stop Print (not recommended!)
-  //#define SD_ABORT_NO_COOLDOWN
-
-  /**
->>>>>>> d1411ea443f33843cf7d640728c00c58b4e39795
    * This option allows you to abort SD printing when any endstop is triggered.
    * This feature must be enabled with "M540 S1" or from the LCD menu.
    * To have any effect, endstops must be enabled during SD printing.
@@ -1587,9 +1520,8 @@
  */
 #define BABYSTEPPING
 #if ENABLED(BABYSTEPPING)
-<<<<<<< HEAD
 //#define INTEGRATED_BABYSTEPPING         // EXPERIMENTAL integration of babystepping into the Stepper ISR
-//#define BABYSTEP_WITHOUT_HOMING
+#define BABYSTEP_WITHOUT_HOMING
 //#define BABYSTEP_XY                     // Also enable X/Y Babystepping. Not supported on DELTA!
 #define BABYSTEP_INVERT_Z false    // Change if Z babysteps should go the other way
 #define BABYSTEP_MULTIPLICATOR_Z 1 // Babysteps are very small. Increase for faster motion.
@@ -1613,33 +1545,6 @@
 //#define BABYSTEP_HOTEND_Z_OFFSET      // For multiple hotends, babystep relative Z offsets
 //#define BABYSTEP_ZPROBE_GFX_OVERLAY   // Enable graphical overlay on Z-offset editor
 #endif
-=======
-  //#define INTEGRATED_BABYSTEPPING         // EXPERIMENTAL integration of babystepping into the Stepper ISR
-  #define BABYSTEP_WITHOUT_HOMING
-  //#define BABYSTEP_XY                     // Also enable X/Y Babystepping. Not supported on DELTA!
-  #define BABYSTEP_INVERT_Z false           // Change if Z babysteps should go the other way
-  #define BABYSTEP_MULTIPLICATOR_Z  1       // Babysteps are very small. Increase for faster motion.
-  #define BABYSTEP_MULTIPLICATOR_XY 1
-
-  //#define DOUBLECLICK_FOR_Z_BABYSTEPPING  // Double-click on the Status Screen for Z Babystepping.
-  #if ENABLED(DOUBLECLICK_FOR_Z_BABYSTEPPING)
-    #define DOUBLECLICK_MAX_INTERVAL 1250   // Maximum interval between clicks, in milliseconds.
-                                            // Note: Extra time may be added to mitigate controller latency.
-    //#define BABYSTEP_ALWAYS_AVAILABLE     // Allow babystepping at all times (not just during movement).
-    //#define MOVE_Z_WHEN_IDLE              // Jump to the move Z menu on doubleclick when printer is idle.
-    #if ENABLED(MOVE_Z_WHEN_IDLE)
-      #define MOVE_Z_IDLE_MULTIPLICATOR 1   // Multiply 1mm by this factor for the move step size.
-    #endif
-  #endif
-
-  //#define BABYSTEP_DISPLAY_TOTAL          // Display total babysteps since last G28
-
-  //#define BABYSTEP_ZPROBE_OFFSET          // Combine M851 Z and Babystepping
-  #if ENABLED(BABYSTEP_ZPROBE_OFFSET)
-    //#define BABYSTEP_HOTEND_Z_OFFSET      // For multiple hotends, babystep relative Z offsets
-    //#define BABYSTEP_ZPROBE_GFX_OVERLAY   // Enable graphical overlay on Z-offset editor
-  #endif
->>>>>>> d1411ea443f33843cf7d640728c00c58b4e39795
 #endif
 
 // @section extruder
@@ -1776,23 +1681,13 @@
 //
 #define ARC_SUPPORT // Disable this feature to save ~3226 bytes
 #if ENABLED(ARC_SUPPORT)
-<<<<<<< HEAD
-#define MM_PER_ARC_SEGMENT 0.3 // (mm) Length (or minimum length) of each arc segment
-//#define ARC_SEGMENTS_PER_R    1 // Max segment length, MM_PER = Min
-#define MIN_ARC_SEGMENTS 24 // Minimum number of segments in a complete circle
-//#define ARC_SEGMENTS_PER_SEC 50 // Use feedrate to choose segment length (with MM_PER_ARC_SEGMENT as the minimum)
-#define N_ARC_CORRECTION 25 // Number of interpolated segments between corrections
-//#define ARC_P_CIRCLES           // Enable the 'P' parameter to specify complete circles
-//#define CNC_WORKSPACE_PLANES    // Allow G2/G3 to operate in XY, ZX, or YZ planes
-=======
-  #define MM_PER_ARC_SEGMENT     0.3 // (mm) Length (or minimum length) of each arc segment
-  //#define ARC_SEGMENTS_PER_R    1 // Max segment length, MM_PER = Min
-  #define MIN_ARC_SEGMENTS       24 // Minimum number of segments in a complete circle
-  //#define ARC_SEGMENTS_PER_SEC 50 // Use feedrate to choose segment length (with MM_PER_ARC_SEGMENT as the minimum)
-  #define N_ARC_CORRECTION       25 // Number of interpolated segments between corrections
-  //#define ARC_P_CIRCLES           // Enable the 'P' parameter to specify complete circles
-  #define CNC_WORKSPACE_PLANES    // Allow G2/G3 to operate in XY, ZX, or YZ planes
->>>>>>> d1411ea443f33843cf7d640728c00c58b4e39795
+#define MM_PER_ARC_SEGMENT 0.3 // (mm) Length (or minimum length) of each arc segment \
+                               //#define ARC_SEGMENTS_PER_R    1 // Max segment length, MM_PER = Min
+#define MIN_ARC_SEGMENTS 24    // Minimum number of segments in a complete circle \
+                             //#define ARC_SEGMENTS_PER_SEC 50 // Use feedrate to choose segment length (with MM_PER_ARC_SEGMENT as the minimum)
+#define N_ARC_CORRECTION 25    // Number of interpolated segments between corrections \
+                             //#define ARC_P_CIRCLES           // Enable the 'P' parameter to specify complete circles
+#define CNC_WORKSPACE_PLANES   // Allow G2/G3 to operate in XY, ZX, or YZ planes
 #endif
 
 // Support for G5 with XYZE destination and IJPQ offsets. Requires ~2666 bytes.
@@ -2205,7 +2100,6 @@
 //https://learn.watterott.com/de/silentstepstick/faq/
 //0.8A RMS --> 1.13VRef
 
-<<<<<<< HEAD
 #if AXIS_IS_TMC(X)
 #define X_CURRENT 800            // (mA) RMS current. Multiply by 1.414 for peak current.
 #define X_CURRENT_HOME X_CURRENT // (mA) RMS current for sensorless homing
@@ -2214,13 +2108,13 @@
 #define X_CHAIN_POS -1 // <=0 : Not chained. 1 : MCU MOSI connected. 2 : Next in chain, ...
 #endif
 
-#if AXIS_IS_TMC(X2)
+//#if AXIS_IS_TMC(X2)
 #define X2_CURRENT 800
 #define X2_CURRENT_HOME X2_CURRENT
 #define X2_MICROSTEPS 16
 #define X2_RSENSE 0.11
 #define X2_CHAIN_POS -1
-#endif
+//#endif
 
 #if AXIS_IS_TMC(Y)
 #define Y_CURRENT 800
@@ -2230,13 +2124,13 @@
 #define Y_CHAIN_POS -1
 #endif
 
-#if AXIS_IS_TMC(Y2)
+// #if AXIS_IS_TMC(Y2)
 #define Y2_CURRENT 800
 #define Y2_CURRENT_HOME Y2_CURRENT
 #define Y2_MICROSTEPS 16
 #define Y2_RSENSE 0.11
 #define Y2_CHAIN_POS -1
-#endif
+//#endif
 
 #if AXIS_IS_TMC(Z)
 #define Z_CURRENT 800
@@ -2327,129 +2221,6 @@
 #endif
 
 /**
-=======
-  #if AXIS_IS_TMC(X)
-    #define X_CURRENT       800        // (mA) RMS current. Multiply by 1.414 for peak current.
-    #define X_CURRENT_HOME  X_CURRENT  // (mA) RMS current for sensorless homing
-    #define X_MICROSTEPS     16    // 0..256
-    #define X_RSENSE          0.11
-    #define X_CHAIN_POS      -1    // <=0 : Not chained. 1 : MCU MOSI connected. 2 : Next in chain, ...
-  #endif
-
-  //#if AXIS_IS_TMC(X2)
-    #define X2_CURRENT      800
-    #define X2_CURRENT_HOME X2_CURRENT
-    #define X2_MICROSTEPS    16
-    #define X2_RSENSE         0.11
-    #define X2_CHAIN_POS     -1
-  //#endif
-
-  #if AXIS_IS_TMC(Y)
-    #define Y_CURRENT       800
-    #define Y_CURRENT_HOME  Y_CURRENT
-    #define Y_MICROSTEPS     16
-    #define Y_RSENSE          0.11
-    #define Y_CHAIN_POS      -1
-  #endif
-
- // #if AXIS_IS_TMC(Y2)
-    #define Y2_CURRENT      800
-    #define Y2_CURRENT_HOME Y2_CURRENT
-    #define Y2_MICROSTEPS    16
-    #define Y2_RSENSE         0.11
-    #define Y2_CHAIN_POS     -1
-  //#endif
-
-  #if AXIS_IS_TMC(Z)
-    #define Z_CURRENT       800
-    #define Z_CURRENT_HOME  Z_CURRENT
-    #define Z_MICROSTEPS     16
-    #define Z_RSENSE          0.11
-    #define Z_CHAIN_POS      -1
-  #endif
-
-  #if AXIS_IS_TMC(Z2)
-    #define Z2_CURRENT      800
-    #define Z2_CURRENT_HOME Z2_CURRENT
-    #define Z2_MICROSTEPS    16
-    #define Z2_RSENSE         0.11
-    #define Z2_CHAIN_POS     -1
-  #endif
-
-  #if AXIS_IS_TMC(Z3)
-    #define Z3_CURRENT      800
-    #define Z3_CURRENT_HOME Z3_CURRENT
-    #define Z3_MICROSTEPS    16
-    #define Z3_RSENSE         0.11
-    #define Z3_CHAIN_POS     -1
-  #endif
-
-  #if AXIS_IS_TMC(Z4)
-    #define Z4_CURRENT      800
-    #define Z4_CURRENT_HOME Z4_CURRENT
-    #define Z4_MICROSTEPS    16
-    #define Z4_RSENSE         0.11
-    #define Z4_CHAIN_POS     -1
-  #endif
-
-  #if AXIS_IS_TMC(E0)
-    #define E0_CURRENT      800
-    #define E0_MICROSTEPS    16
-    #define E0_RSENSE         0.11
-    #define E0_CHAIN_POS     -1
-  #endif
-
-  #if AXIS_IS_TMC(E1)
-    #define E1_CURRENT      800
-    #define E1_MICROSTEPS    16
-    #define E1_RSENSE         0.11
-    #define E1_CHAIN_POS     -1
-  #endif
-
-  #if AXIS_IS_TMC(E2)
-    #define E2_CURRENT      800
-    #define E2_MICROSTEPS    16
-    #define E2_RSENSE         0.11
-    #define E2_CHAIN_POS     -1
-  #endif
-
-  #if AXIS_IS_TMC(E3)
-    #define E3_CURRENT      800
-    #define E3_MICROSTEPS    16
-    #define E3_RSENSE         0.11
-    #define E3_CHAIN_POS     -1
-  #endif
-
-  #if AXIS_IS_TMC(E4)
-    #define E4_CURRENT      800
-    #define E4_MICROSTEPS    16
-    #define E4_RSENSE         0.11
-    #define E4_CHAIN_POS     -1
-  #endif
-
-  #if AXIS_IS_TMC(E5)
-    #define E5_CURRENT      800
-    #define E5_MICROSTEPS    16
-    #define E5_RSENSE         0.11
-    #define E5_CHAIN_POS     -1
-  #endif
-
-  #if AXIS_IS_TMC(E6)
-    #define E6_CURRENT      800
-    #define E6_MICROSTEPS    16
-    #define E6_RSENSE         0.11
-    #define E6_CHAIN_POS     -1
-  #endif
-
-  #if AXIS_IS_TMC(E7)
-    #define E7_CURRENT      800
-    #define E7_MICROSTEPS    16
-    #define E7_RSENSE         0.11
-    #define E7_CHAIN_POS     -1
-  #endif
-
-  /**
->>>>>>> d1411ea443f33843cf7d640728c00c58b4e39795
    * Override default SPI pins for TMC2130, TMC2160, TMC2660, TMC5130 and TMC5160 drivers here.
    * The default pins can be found in your board's pins file.
    */
@@ -2552,11 +2323,7 @@
    * M912 - Clear stepper driver overtemperature pre-warn condition flag.
    * M122 - Report driver parameters (Requires TMC_DEBUG)
    */
-<<<<<<< HEAD
-//#define MONITOR_DRIVER_STATUS
-=======
-  #define MONITOR_DRIVER_STATUS
->>>>>>> d1411ea443f33843cf7d640728c00c58b4e39795
+#define MONITOR_DRIVER_STATUS
 
 #if ENABLED(MONITOR_DRIVER_STATUS)
 #define CURRENT_STEP_DOWN 50 // [mA]
@@ -2629,11 +2396,7 @@
    * Beta feature!
    * Create a 50/50 square wave step pulse optimal for stepper drivers.
    */
-<<<<<<< HEAD
-//#define SQUARE_WAVE_STEPPING
-=======
-  #define SQUARE_WAVE_STEPPING
->>>>>>> d1411ea443f33843cf7d640728c00c58b4e39795
+#define SQUARE_WAVE_STEPPING
 
 /**
    * Enable M122 debugging command for TMC stepper drivers.
